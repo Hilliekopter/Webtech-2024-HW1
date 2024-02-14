@@ -1,0 +1,16 @@
+body{
+    background-color:azure;
+
+}
+
+article{
+    position:relative;
+    top:20px;
+    left:10px;
+    width:"90%";
+}
+
+*{
+    color:black;
+    font-family:Arial,sans-serif;
+}
