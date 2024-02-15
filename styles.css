@@ -4,7 +4,7 @@
 }
 
 body{
-    background-color:azure;
+    background-color:gainsboro;
 }
 
 header{
@@ -14,4 +14,9 @@ header{
 article{
     position:relative;
     width:"90%";
+}
+
+.content{
+    width:"40%";
+    background-color:azure;
 }
