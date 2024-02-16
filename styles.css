@@ -1,5 +1,5 @@
 body{
-    background-color:gainsboro;
+    background-color:rgb(189,189,213);
     margin:0;
     padding:0;
     
@@ -8,16 +8,51 @@ body{
 }
 
 header{
-    color:white;
+    color:gray;
     text-align:center;
-    background-color:rgb(32, 32, 32);
+    background-color:rgb(46, 40, 79);
     padding:20px;
     box-shadow: 0px 5px 5px gray;
 }
 
-article{
-    position:relative;
-    width:"90%";
+a {
+    font-weight:bold;
+    color:black;
+    text-decoration-line:none;
+    transition:1s;
+}
+
+a:hover{
+    color:red;
+    transition:0s;
+}
+
+nav a{
+    margin:2px;
+    background-color: gray;
+    padding:5px;
+    transition:0.3s;
+}
+
+nav a:hover{
+    padding:20px;
+    transition:0.3s;
+}
+
+header a {
+    color: white;
+}
+
+.biography img{
+    float:left;
+    height:auto;
+    max-width:200px;
+    margin-right:20px;
+}
+.biography{
+    padding: 20px;
+    margin:10px;
+    border:1px solid black;
 }
 
 .content{
@@ -26,5 +61,5 @@ article{
     max-height:100%;
 
     padding:20px;
-    background-color:azure;
+    background-color:rgb(238,238,247);
 }
