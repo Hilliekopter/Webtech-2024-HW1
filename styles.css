@@ -28,8 +28,12 @@ header{
     background-attachment: fixed; */
 }
 
+header a {
+    color: white;
+}
+
 .title{
-    color:rgb(255, 0, 0);
+    color:red;
     text-align:center;
     padding:5px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
@@ -49,7 +53,20 @@ nav{
     text-align:center;
 }
 
+nav a{    
+    background-color:rgba(0, 0, 0, 0.1);
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    color:white;
+    padding:10px;
+    transition:0.3s;
+}
 
+nav a:hover{
+    background-color:rgba(255, 255, 255, 0.6);
+    color:black;
+    transition:0s;
+}
 
 footer{
     color:rgb(134, 134, 134);
@@ -69,28 +86,6 @@ a {
 a:hover{
     color:red;
     transition:0s;
-}
-
-nav a{
-    margin:0px;
-    background-color: gray;
-    color:white;
-    padding:5px;
-    transition:0.3s;
-}
-
-nav a:hover{
-    padding-top:10px;
-    padding-bottom:15px;
-    padding-left:5px;
-    padding-right:5px;
-    background-color:white;
-    color:black;
-    transition:0s;
-}
-
-header a {
-    color: white;
 }
 
 .biography img{
