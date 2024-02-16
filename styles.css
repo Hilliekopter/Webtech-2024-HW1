@@ -3,7 +3,7 @@ body{
         to bottom,
         rgba(213, 213, 213, 0.351),
         rgba(77, 52, 33, 0.842)
-      ), url("background.jpg");
+      ), url(Images/background.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -20,7 +20,7 @@ header{
     height: 100%;
     width: 100%;
     background-color:rgb(0, 0, 0);
-    background-image: url(banner.png);
+    background-image: url(Images/banner.png);
     background-position: center;
     background-size: cover;
     padding-top: 50px;
