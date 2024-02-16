@@ -105,6 +105,15 @@ header a {
     overflow:hidden;
 }
 
+table, th, td{
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+th, td{
+    padding: 10px;
+}
+
 .content{
     margin:auto;
     max-width:800px;
@@ -114,11 +123,7 @@ header a {
     background-color:rgb(238,238,247);
 }
 
-table, th, td{
-    border: 1px solid black;
-    border-collapse: collapse;
-}
-
-th, td{
-    padding: 10px;
+.content figcaption {
+    font-style: italic;
+    font-size:0.8em;
 }
