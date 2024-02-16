@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Home - Harry Potter and the Philosopher's Stone</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+
+    <body>
+        <header>
+            <div class="title">
+                <h1><a href="index.html">Harry Potter and the Philosopher's Stone</a></h1>
+                <h2>The unofficial website</h2>
+            </div>
+            <nav>
+                <a href="page2.html">Page 1</a>
+                <a href="page2.html">Page 2</a>
+                <a href="page2.html">Page 3</a>
+                <a href="#imag">funky</a>
+                <a href="#bogo">bogos binged</a>
+            </nav>
+        </header>
+
+        <article class="content">
+            
+        </article>
+    </body>
+
+</html>

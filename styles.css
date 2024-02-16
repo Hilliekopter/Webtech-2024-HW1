@@ -73,7 +73,7 @@ header a {
 
 .biography img{
     float:left;
-    height:auto;
+    object-fit: contain;
     max-width:200px;
     margin-right:20px;
 }
@@ -81,6 +81,7 @@ header a {
     padding: 20px;
     margin:10px;
     border:1px solid black;
+    overflow:hidden;
 }
 
 .content{
@@ -90,4 +91,13 @@ header a {
 
     padding:20px;
     background-color:rgb(238,238,247);
+}
+
+table, th, td{
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+th, td{
+    padding: 10px;
 }
