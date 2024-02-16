@@ -63,7 +63,7 @@ a {
     font-weight:bold;
     color:black;
     text-decoration-line:none;
-    transition:1s;
+    transition:0.3s;
 }
 
 a:hover{
@@ -72,15 +72,21 @@ a:hover{
 }
 
 nav a{
-    margin:2px;
+    margin:0px;
     background-color: gray;
+    color:white;
     padding:5px;
     transition:0.3s;
 }
 
 nav a:hover{
-    padding:20px;
-    transition:0.3s;
+    padding-top:10px;
+    padding-bottom:15px;
+    padding-left:5px;
+    padding-right:5px;
+    background-color:white;
+    color:black;
+    transition:0s;
 }
 
 header a {
