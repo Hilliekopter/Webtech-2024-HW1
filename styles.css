@@ -123,6 +123,18 @@ th, td{
     font-size: 0.8em;
 }
 
+.content .credit {
+    font-style: italic;
+}
+
+.timeline {
+
+}
+
+.timeline .container {
+
+} 
+
 .trivia__answer{
     display: none;
     color: red;
