@@ -17,16 +17,18 @@
     }
 }
 
-/* Extra large devices, such as large laptops/desktops */
+/* Extra large devices, such as large laptops/desktops 
 @media only screen and (min-width:1200px) {
     
 }
 
-/* devices in landscape orientation */
+/* devices in landscape orientation 
 @media only screen and (orientation: landscape)
 {
 
-} */
+}  
+*/
+
 
 body{
     background-image: linear-gradient(
