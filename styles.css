@@ -138,8 +138,22 @@ th, td{
 .trivia__answer{
     display: none;
     color: red;
+    background-color: darkgray;
+    max-width: 60%;
+    padding: 20px;
+}
+
+.trivia__question{
+    padding: 20px;
+    max-width: 60%;
+    background-color: gray;
+}
+
+.trivia__question:hover{
+    background-color: rgb(184, 184, 184);
 }
 
 .trivia__question:hover + .trivia__answer{
     display: block;
+    transition: 2s;
 }
