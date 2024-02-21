@@ -1,3 +1,33 @@
+/* Extra small devices, such as phones
+@media only screen and (max-width:600px) {
+    main { width: 100%; }
+    .content { width: 100%; }
+    .logo { width: 100%; }
+    .content h1 {
+        padding: 30px 30px 20px;
+        font-family: arial;
+        font-size: 40px;
+        line-height: 36px;
+    }
+    .content p {
+        padding: 0px 30px 20px;
+        font-family: arial;
+        font-size: 16px;
+        line-height: 24px;
+    }
+}
+
+/* Extra large devices, such as large laptops/desktops */
+@media only screen and (min-width:1200px) {
+    
+}
+
+/* devices in landscape orientation */
+@media only screen and (orientation: landscape)
+{
+
+} */
+
 body{
     background-image: linear-gradient(
         to bottom,
