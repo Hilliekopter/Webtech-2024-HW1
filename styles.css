@@ -93,8 +93,6 @@ header a{
 }
 
 nav{
-    background-color: rgb(192, 125, 74);
-    padding: 10px;
     background-color: rgb(62, 48, 24);
     position: sticky;
     position: -webkit-sticky;
@@ -103,10 +101,11 @@ nav{
     text-align: center;
 }
 
-nav a{    
+nav a{
     background-color: rgba(0, 0, 0, 0.1);
-    border-left: 1px solid black;
+    border: 1px solid rgba(0, 0, 0, 0.25);
     border-right: 1px solid black;
+    display: inline-block;
     color: white;
     padding: 10px;
     transition: 0.3s;
