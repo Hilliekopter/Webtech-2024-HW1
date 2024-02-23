@@ -120,16 +120,10 @@ a:hover{
     transition: 0s;
 }
 
-.biography img{
+#biography__img{
     float: left;
-    object-fit: contain;
-    max-width: 200px;
     margin-right: 20px;
-}
-.biography{
-    padding: 20px;
-    border: 1px solid black;
-    overflow: hidden;
+    max-width: 200px;
 }
 
 table, th, td{
