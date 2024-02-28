@@ -193,6 +193,7 @@ figcaption{
     position: relative;
     max-width: 1200px;
     margin: 0 auto;
+    padding-top: 10px;
 }
 
 .timeline * {
@@ -202,12 +203,49 @@ figcaption{
 .timeline::after {
     content: '';
     position: absolute;
-    width: 6px;
-    background-color: rgb(62, 48, 24);
+    width: 16px;
+    background-color: rgb(25,13,0);
     top: 0;
     bottom: 0;
     left: 50%;
-    margin-left: -3px;
+    margin-left: -8px;
+}
+
+.timeline .timeline__year {
+    position: relative;
+    transform: translateX(-50%);
+    width: 100px;
+    left:50%;
+}
+
+.timeline .timeline__year::before {
+    content: " ";
+    /* height: 0; */
+    position: absolute;
+    /* top: 45%; */
+    /* width: 0; */
+    z-index: 1;
+    left: 0px;
+    border: medium solid rgb(25,13,0);
+    border-width: 10px 10px 10px 0;
+    border-color: transparent rgb(25,13,0) transparent transparent;
+}
+
+.timeline .timeline__year::after {
+    content: " ";
+    height: 0;
+    position: absolute;
+    width: 0;
+    z-index: 1;
+    right: 0px;
+    border: medium solid rgb(25,13,0);
+    border-width: 10px 0 10px 40px;
+    border-color: transparent transparent transparent white;
+}
+
+.timeline .timeline__yearContent {
+    background-color: rgb(99,53,19);
+    text-align: center;
 }
 
 .timeline .container {
@@ -215,28 +253,11 @@ figcaption{
     position: relative;
     background-color: inherit;
     width: 50%;
-    
-}
-
-/* The circles on the timeline */
-.timeline .container::after {
-    content: '';
-    position: absolute;
-    width: 25px;
-    height: 25px;
-    right: -17px;
-    background-color: white;
-    border: 4px solid #FF9F55;
-    top: 15px;
-    border-radius: 50%;
-    z-index: 1;
 }
 
 /* Place the container to the left */
 .timeline .left {
     left:0;
-
-    /* float: right; */
 }
 
 /* Place the container to the right */
@@ -249,13 +270,13 @@ figcaption{
     content: " ";
     height: 0;
     position: absolute;
-    top: 22px;
+    top: 45%;
     width: 0;
     z-index: 1;
-    right: 30px;
-    border: medium solid white;
-    border-width: 10px 0 10px 10px;
-    border-color: transparent transparent transparent white;
+    right: 0px;
+    border: medium solid rgb(25,13,0);
+    border-width: 10px 0 10px 40px;
+    /* border-color: transparent transparent transparent white; */
 }
 
 /* Add arrows to the right container (pointing left) */
@@ -263,26 +284,27 @@ figcaption{
     content: " ";
     height: 0;
     position: absolute;
-    top: 22px;
+    top: 45%;
     width: 0;
     z-index: 1;
-    left: 30px;
-    border: medium solid white;
-    border-width: 10px 10px 10px 0;
-    border-color: transparent white transparent transparent;
+    left: 0px;
+    border: medium solid rgb(25,13,0);
+    border-width: 10px 40px 10px 0;
+    /* border-color: transparent rgb(25,13,0) transparent transparent; */
 }
 
-/* Fix the circle for containers on the right side */
-.timeline .right::after {
-    left: -16px;
-}
+/* rgb(151,94,36)    */
+/* rgb(25,13,0) */
+
 
 /* The actual content */
-.timeline .content {
-    padding: 20px 30px;
-    background-color: white;
+.timeline .timeline__content {
+    padding: 10px 20px;
+    background-color: rgb(25,13,0);
+    color: rgb(151,94,36);
     position: relative;
-    border-radius: 6px;
+    /* border-radius: 6px; */
+    border: inset rgb(151,94,36);
 }
 
 /* Media queries - Responsive timeline on screens less than 600px wide */
@@ -301,15 +323,20 @@ figcaption{
     
     /* Make sure that all arrows are pointing leftwards */
     .timeline .container::before {
-        left: 60px;
-        border: medium solid white;
-        border-width: 10px 10px 10px 0;
-        border-color: transparent white transparent transparent;
-    }
-  
-    /* Make sure all circles are at the same spot */
-    .timeline .left::after, .timeline .right::after {
-        left: 15px;
+        left: 30px;
+        border: medium solid rgb(25,13,0);
+        border-width: 10px 40px 10px 0;
+        /* border-color: transparent rgb(25,13,0) transparent transparent; */
+
+        /* content: " ";
+        height: 0;
+        position: absolute;
+        top: 45%;   
+        width: 0;
+        z-index: 1;
+        left: 0px;
+        border: medium solid rgb(25,13,0);
+        border-width: 10px 40px 10px 0; */
     }
     
     /* Make all right containers behave like the left ones */
