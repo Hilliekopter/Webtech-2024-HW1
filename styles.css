@@ -1,34 +1,3 @@
-/* Extra small devices, such as phones
-@media only screen and (max-width:600px){
-    main{ width: 100%; }
-    .content{ width: 100%; }
-    .logo{ width: 100%; }
-    .content h1{
-        padding: 30px 30px 20px;
-        font-family: arial;
-        font-size: 40px;
-        line-height: 36px;
-    }
-    .content p{
-        padding: 0px 30px 20px;
-        font-family: arial;
-        font-size: 16px;
-        line-height: 24px;
-    }
-}
-
-/* Extra large devices, such as large laptops/desktops 
-@media only screen and (min-width:1200px){
-    
-}
-
-/* devices in landscape orientation 
-@media only screen and (orientation: landscape)
-{
-
-}  
-*/
-
 body{
     background-image: linear-gradient(
         to bottom,
@@ -85,10 +54,9 @@ header{
     background-color:rgb(0, 0, 0);
     background-image: url(Images/banner.png);
     background-position: center;
-    background-size: cover;
-    padding-top: 50px;
-    /* background-repeat: no-repeat;
-    background-attachment: fixed; */
+    background-size:contain;
+    background-repeat: no-repeat;
+    padding-top: 2%;
 }
 
 header a{
@@ -98,7 +66,7 @@ header a{
 .title{
     color: red;
     text-align: center;
-    padding: 5px;
+    padding: 2%;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 .title h1{
@@ -108,7 +76,6 @@ header a{
 nav{
     background-color: rgb(62, 48, 24);
     position: sticky;
-    position: -webkit-sticky;
     top: 0;
     box-shadow: 0px 5px 5px rgb(24, 24, 24);
     text-align: center;
@@ -117,11 +84,11 @@ nav{
 
 nav a{
     background-color: rgba(0, 0, 0, 0.1);
-    color: white;
     border: 1px solid rgba(0, 0, 0, 0.25);
-    border-radius: 20px;
+    border-radius: 15%;
     margin: 2px 5px 2px 5px;
     display: inline-block;
+    color: white;
     padding: 10px;
     transition: 0.3s;
 }
@@ -141,7 +108,7 @@ footer{
     color: rgb(134, 134, 134);
     text-align: center;
     background-color: rgb(77, 52, 33);
-    padding: 20px;
+    padding: 1%;
     box-shadow: 0px 5px 5px gray;
 }
 
@@ -156,10 +123,12 @@ th, td{
 
 .content{
     margin: auto;
-    max-width: 800px;
+    width: 80%;
+    max-width: 1000px;
     max-height: 100%;
 
-    padding: 20px;
+    padding: 5%;
+    padding-top: 2%;
     overflow: hidden;
     background-color: rgb(238,238,247);
 }
@@ -173,12 +142,21 @@ th, td{
     max-height: 400px;
 }
 
+.inline-image__left{
+    float: left;
+    box-sizing: border-box;
+    max-width: 50%;
+    max-height: 400px;
+    margin: 0px 20px 5px 0px;
+}
+
 .inline-image__right{
     float: right;
     box-sizing: border-box;
     margin-left: 20px;
     max-width: 50%;
     max-height: 400px;
+    margin: 0px 0px 5px 20px;
 }
 
 figcaption{
@@ -193,10 +171,13 @@ figcaption{
 /* Credit to W3Schools for timeline tutorial: https://www.w3schools.com/howto/howto_css_timeline.asp */
 /* Approval for the use of this tutorial was given by a TA */
 /* if we edited it to fit our website's style. */
+/* rgb(151,94,36)    */
+/* rgb(25,13,0) */
 .timeline {
     position: relative;
     max-width: 1200px;
     margin: 0 auto;
+    padding-top: 10px;
 }
 
 .timeline * {
@@ -206,12 +187,46 @@ figcaption{
 .timeline::after {
     content: '';
     position: absolute;
-    width: 6px;
-    background-color: rgb(62, 48, 24);
+    width: 16px;
+    background-color: rgb(25,13,0);
     top: 0;
     bottom: 0;
     left: 50%;
-    margin-left: -3px;
+    margin-left: -8px;
+}
+
+.timeline .timeline__year {
+    position: relative;
+    transform: translateX(-50%);
+    width: 100px;
+    left:50%;
+}
+
+.timeline .timeline__year::before {
+    content: " ";
+    position: absolute;
+    z-index: 1;
+    left: 0px;
+    border: medium solid rgb(25,13,0);
+    border-width: 10px 10px 10px 0;
+    border-color: transparent rgb(25,13,0) transparent transparent;
+}
+
+.timeline .timeline__year::after {
+    content: " ";
+    height: 0;
+    position: absolute;
+    width: 0;
+    z-index: 1;
+    right: 0px;
+    border: medium solid rgb(25,13,0);
+    border-width: 10px 0 10px 40px;
+    border-color: transparent transparent transparent white;
+}
+
+.timeline .timeline__yearContent {
+    background-color: rgb(99,53,19);
+    text-align: center;
 }
 
 .timeline .container {
@@ -219,28 +234,11 @@ figcaption{
     position: relative;
     background-color: inherit;
     width: 50%;
-    
-}
-
-/* The circles on the timeline */
-.timeline .container::after {
-    content: '';
-    position: absolute;
-    width: 25px;
-    height: 25px;
-    right: -17px;
-    background-color: white;
-    border: 4px solid #FF9F55;
-    top: 15px;
-    border-radius: 50%;
-    z-index: 1;
 }
 
 /* Place the container to the left */
 .timeline .left {
     left:0;
-
-    /* float: right; */
 }
 
 /* Place the container to the right */
@@ -248,45 +246,39 @@ figcaption{
     left: 50%;
 }
 
-/* Add arrows to the left container (pointing right) */
+/* Add arrows to the left container  */
 .timeline .left::before {
     content: " ";
     height: 0;
     position: absolute;
-    top: 22px;
+    top: 45%;
     width: 0;
     z-index: 1;
-    right: 30px;
-    border: medium solid white;
-    border-width: 10px 0 10px 10px;
-    border-color: transparent transparent transparent white;
+    right: 0px;
+    border: medium solid rgb(25,13,0);
+    border-width: 10px 0 10px 40px;
 }
 
-/* Add arrows to the right container (pointing left) */
+/* Add arrows to the right container*/
 .timeline .right::before {
     content: " ";
     height: 0;
     position: absolute;
-    top: 22px;
+    top: 45%;
     width: 0;
     z-index: 1;
-    left: 30px;
-    border: medium solid white;
-    border-width: 10px 10px 10px 0;
-    border-color: transparent white transparent transparent;
-}
-
-/* Fix the circle for containers on the right side */
-.timeline .right::after {
-    left: -16px;
+    left: 0px;
+    border: medium solid rgb(25,13,0);
+    border-width: 10px 40px 10px 0;
 }
 
 /* The actual content */
-.timeline .content {
-    padding: 20px 30px;
-    background-color: white;
+.timeline .timeline__content {
+    padding: 10px 20px;
+    background-color: rgb(25,13,0);
+    color: white; /* rgb(151,94,36); */
     position: relative;
-    border-radius: 6px;
+    border: inset rgb(151,94,36);
 }
 
 /* Media queries - Responsive timeline on screens less than 600px wide */
@@ -305,15 +297,9 @@ figcaption{
     
     /* Make sure that all arrows are pointing leftwards */
     .timeline .container::before {
-        left: 60px;
-        border: medium solid white;
-        border-width: 10px 10px 10px 0;
-        border-color: transparent white transparent transparent;
-    }
-  
-    /* Make sure all circles are at the same spot */
-    .timeline .left::after, .timeline .right::after {
-        left: 15px;
+        left: 30px;
+        border: medium solid rgb(25,13,0);
+        border-width: 10px 40px 10px 0;
     }
     
     /* Make all right containers behave like the left ones */
@@ -349,9 +335,74 @@ figcaption{
     float: right;    
     background-color: darkgray;
     color: red;
-    display: none;
+    display: none;  
 }
 
-/* .trivia__question:checked + .trivia__answer{
+.trivia__question:active + .trivia__answer{
     display: block;
-} */
+}
+
+/* Extra small devices, such as phones */
+@media only screen and (max-width:600px){
+    header{    
+        display: none;
+    }
+    nav{
+        max-height: 10%;
+    }
+    nav a{
+        border-radius: 15%;
+        margin: 0 1% 0;
+        display: inline-block;
+        padding: 2%;
+        font-size: 90%;
+    }
+    .content {    
+        width: 100%;
+        padding: 10px;
+    }
+    .content h1{
+        font-family: arial;
+        font-size: 40px;
+        line-height: 36px;
+    }
+    .content p{
+        font-family: arial;
+        font-size: 16px;
+        line-height: 24px;
+    }
+    .inline-image__left{
+        margin: 0px;
+        float:none;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        box-sizing: border-box;
+        width: 300px;
+        max-width: 90%;
+    }
+    .inline-image__right{
+        margin: 0px;
+        float:none;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        box-sizing: border-box;
+        width: 300px;
+        max-width: 90%;
+    }
+}
+
+/* Extra large devices, such as large laptops/desktops */
+@media only screen and (min-width:1200px){
+    
+}
+
+/* devices in landscape orientation */
+@media only screen and (orientation: landscape)
+{
+
+}  
+
+
+/*      ---  SEPARATION  ---        */
