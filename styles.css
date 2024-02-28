@@ -124,6 +124,7 @@ th, td{
     max-height: 100%;
 
     padding: 5%;
+    padding-top: 2%;
     overflow: hidden;
     background-color: rgb(238,238,247);
 }
