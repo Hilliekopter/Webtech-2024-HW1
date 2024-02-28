@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
     <head>
         <title>Trivia - Harry Potter and the Philosopher's Stone</title>
@@ -34,12 +34,12 @@
             <h1>Trivia</h1>
             <p>This page contains some fun and interesting facts about the first Harry Potter book and its fantastical universe.
                 There are questions about
-                <ul>
-                    <li><a href="#trivia__story">the story</a></li>
-                    <li><a href="#trivia__meta">the book itself</a></li>
-                    <li><a href="#trivia__author">the author, J.K. Rowling</a></li>
-                </ul>
             </p>
+            <ul>
+                <li><a href="#trivia__story">the story</a></li>
+                <li><a href="#trivia__meta">the book itself</a></li>
+                <li><a href="#trivia__author">the author, J.K. Rowling</a></li>
+            </ul>
             <p>Hover over a question to reveal the answer.</p>
             <h2 id="trivia__story" class="anchor-target">Story</h2>
             <section class="trivia">
@@ -92,18 +92,18 @@
                 All rights reserved for miss Rowling
             </p>
         </footer>
+
+        <script>
+            function toggleTrivia(i){
+                var node = document.getElementsByClassName("trivia__answer")[i];
+                if (node.style.display == "block"){
+                    node.style.display = "none";
+                }
+                else{
+                    node.style.display = "block";
+                }
+            }
+        </script>
     </body>
-
-    <script>
-        function toggleTrivia(i){
-            var node = document.getElementsByClassName("trivia__answer")[i];
-            if (node.style.display == "block"){
-                node.style.display = "none";
-            }
-            else{
-                node.style.display = "block";
-            }
-        }
-    </script>
-
+    
 </html>
