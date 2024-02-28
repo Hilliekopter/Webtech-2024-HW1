@@ -74,6 +74,11 @@ a:active{
     scroll-margin-top: 50px;
 }
 
+button{
+    border-color: black;
+    font-size: 1em;
+}
+
 header{
     height: 100%;
     width: 100%;
@@ -320,13 +325,14 @@ figcaption{
 .trivia{
     max-width: 100%;
     margin-bottom: 10px;
+    border-radius: 20px;
     background-color: rgba(0, 0, 0, 0.1);
     text-align: center;
     
     overflow:hidden;
 }
 
-.trivia p{
+.trivia p, .trivia button{
     margin: auto;
     padding: 10px;
     width: 50%;
@@ -346,6 +352,6 @@ figcaption{
     display: none;
 }
 
-.trivia__question:hover + .trivia__answer{
+/* .trivia__question:checked + .trivia__answer{
     display: block;
-}
+} */

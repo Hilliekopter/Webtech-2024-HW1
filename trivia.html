@@ -43,56 +43,51 @@
             <p>Hover over a question to reveal the answer.</p>
             <h2 id="trivia__story" class="anchor-target">Story</h2>
             <section class="trivia">
-                <p class="trivia__question">How did Harry kill Voldemort?</p>
-                <p class="trivia__answer">Shot him dead!</p>
+                <button class="trivia__question" onclick="toggleTrivia(0)">How did Harry kill Voldemort?</button>
+                <p id="a1" class="trivia__answer">Shot him dead!</p>
             </section>
             <section class="trivia">
-                <p class="trivia__question">What is Harry's full name?</p>
+                <button class="trivia__question" onclick="toggleTrivia(1)">What is Harry's full name?</button>
                 <p class="trivia__answer">Harry James Potter</p>
             </section>
             <section class="trivia">
-                <p class="trivia__question">How old does Harry turn in the book?</p>
+                <button class="trivia__question" onclick="toggleTrivia(2)">How old does Harry turn in the book?</button>
                 <p class="trivia__answer">He turns 11 years old</p>
             </section>
             <section class="trivia">
-                <p class="trivia__question">How many letters did Harry get on a single day?</p>
+                <button class="trivia__question" onclick="toggleTrivia(3)">How many invitation letters did Harry get in a single day?</button>
                 <p class="trivia__answer">24 letters</p>
             </section>
             <section class="trivia">
-                <p class="trivia__question">What is the name of the train station Harry used to travel to Hogwarts?</p>
+                <button class="trivia__question" onclick="toggleTrivia(4)">What is the name of the train station Harry used to travel to Hogwarts?</button>
                 <p class="trivia__answer">King's Cross Station</p>
             </section>
             <section class="trivia">
-                <p class="trivia__question">What was the iconic hidden platform at this station?</p>
+                <button class="trivia__question" onclick="toggleTrivia(5)">What was the iconic hidden platform at this station?</button>
                 <p class="trivia__answer">Platform 9<sup>3</sup>&frasl;<sub>4</sub></p>
             </section>
 
             <h2 id="trivia__meta" class="anchor-target">Meta</h2>
             <section class="trivia">
-                <p class="trivia__question">How many pages is the first book?</p>
+                <button class="trivia__question" onclick="toggleTrivia(6)">How many pages is the first book?</button>
                 <p class="trivia__answer">223 pages</p>
             </section>
             <section class="trivia">
-                <p class="trivia__question">How many copies did the first book sell?</p>
+                <button class="trivia__question" onclick="toggleTrivia(7)">How many copies did the first book sell?</button>
                 <p class="trivia__answer">Over 120 million copies</p>
             </section>
             <section class="trivia">
-                <p class="trivia__question">In how many languages has the book been released?</p>
+                <button class="trivia__question" onclick="toggleTrivia(8)">In how many languages has the book been released?</button>
                 <p class="trivia__answer"> 85 languages as of June 2017</p>
             </section>
 
             <h2 id="trivia__author" class="anchor-target">Author</h2>
             <section class="trivia">
-                <p class="trivia__question">How much did Miss Rowling make from the Harry Potter series?</p>
-                <p class="trivia__answer">Millions upon billions and trillions of dollars!</p>
-            </section>
-
-            <section class="trivia">
-                <p class="trivia__question">When and where was J.K. Rowling born?</p>
+                <button class="trivia__question" onclick="toggleTrivia(9)">When and where was J.K. Rowling born?</button>
                 <p class="trivia__answer">She was born in Yate, Gloucestershire on July 31st 1965</p>
             </section>
             <section class="trivia">
-                <p class="trivia__question">Where did her parents meet?</p>
+                <button class="trivia__question" onclick="toggleTrivia(10)">Where did her parents meet?</button>
                 <p class="trivia__answer">On a train from King's Cross Station, which inspired the same station in the book.</p>
             </section>
         </article>
@@ -102,5 +97,17 @@
             </p>
         </footer>
     </body>
+
+    <script>
+        function toggleTrivia(i){
+            var node = document.getElementsByClassName("trivia__answer")[i];
+            if (node.style.display == "block"){
+                node.style.display = "none";
+            }
+            else{
+                node.style.display = "block";
+            }
+        }
+    </script>
 
 </html>
