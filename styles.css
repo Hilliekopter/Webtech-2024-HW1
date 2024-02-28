@@ -66,6 +66,10 @@ a:hover{
     transition: 0s;
 }
 
+a:active{
+    color: darkred;
+}
+
 header{
     height: 100%;
     width: 100%;
@@ -103,10 +107,11 @@ nav{
 
 nav a{
     background-color: rgba(0, 0, 0, 0.1);
-    border: 1px solid rgba(0, 0, 0, 0.25);
-    border-right: 1px solid black;
-    display: inline-block;
     color: white;
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+    margin: 2px 5px 2px 5px;
+    display: inline-block;
     padding: 10px;
     transition: 0.3s;
 }
@@ -115,6 +120,11 @@ nav a:hover{
     background-color: rgba(255, 255, 255, 0.6);
     color: black;
     transition: 0s;
+}
+
+nav a:active{
+    background-color: rgba(255, 255, 255, 0.3);
+    color: black;
 }
 
 footer{
@@ -146,14 +156,24 @@ th, td{
     max-height: 100%;
 
     padding: 20px;
+    overflow: hidden;
     background-color: rgb(238,238,247);
 }
 
-.center-image{
+.block-image__center{
     display: block;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
+    max-width: 75%;
+    max-height: 400px;
+}
+
+.inline-image__right{
+    float: right;
+    box-sizing: border-box;
+    max-width: 50%;
+    max-height: 400px;
 }
 
 figcaption{
