@@ -70,6 +70,10 @@ a:active{
     color: darkred;
 }
 
+.anchor-target {
+    scroll-margin-top: 50px;
+}
+
 header{
     height: 100%;
     width: 100%;
@@ -135,12 +139,6 @@ footer{
     box-shadow: 0px 5px 5px gray;
 }
 
-#biography__img{
-    float: left;
-    margin-right: 20px;
-    max-width: 200px;
-}
-
 table, th, td{
     border: 1px solid black;
     border-collapse: collapse;
@@ -172,6 +170,7 @@ th, td{
 .inline-image__right{
     float: right;
     box-sizing: border-box;
+    margin-left: 20px;
     max-width: 50%;
     max-height: 400px;
 }
