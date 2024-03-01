@@ -24,7 +24,13 @@ function onLoad(){
 
 function setFontSize(){
     console.log("Changing text size to " + size.value);
-    document.querySelector(elem.value).style.fontSize = size.value +"px";
+    console.log("Target element: " + elem.value);
+
+    var selectedElement = document.querySelector(elem.value);
+    if (selectedElement != null ){
+        document.querySelector(elem.value).style.setProperty('font-size', size.value+'px');
+    }
+            //document.querySelector(elem.value).style.fontSize = size.value +"px";
 }
 
 // BODY
