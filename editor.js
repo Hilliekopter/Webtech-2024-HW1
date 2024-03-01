@@ -15,7 +15,17 @@ var sections = document.querySelectorAll("section");
 // (this should change their state or give them a new tag/class/whatever, that changes the style as defined in the CSS)
 // TODO --
 
+var size;
+function onLoad(){
+    size = document.querySelector("#fontSize");
+    elem = document.querySelector("#elemSelector");
+    console.log("Load!");
+}
 
+function setFontSize(){
+    console.log("Changing text size to " + size.value);
+    document.querySelector(elem.value).style.fontSize = size.value +"px";
+}
 
 // BODY
 // allow to change dark-mode/light-mode

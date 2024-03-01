@@ -75,22 +75,7 @@
                 </select>
             </form>
         </footer>
-
-        <script>
-            var size;
-            function onLoad(){
-                size = document.querySelector("#fontSize");
-                elem = document.querySelector("#elemSelector");
-                console.log("Load!");
-            }
-
-            function setFontSize(){
-                console.log("Changing text size to " + size.value);
-                document.querySelector(elem.value).style.fontSize = size.value +"px";
-            }
-        </script>
-    </body>
-    
+    </body>    
 
     <script src="editor.js"></script>
 </html>
