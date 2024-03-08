@@ -1,3 +1,7 @@
+:root{
+    --transition-time: 0.3s;
+}
+
 body{
     background-image: linear-gradient(
         to bottom,
@@ -29,7 +33,7 @@ a{
     font-weight: bold;
     color: black;
     text-decoration-line: none;
-    transition: color 0.3s;
+    transition: color var(--transition-time);
 }
 
 a:hover{
@@ -92,7 +96,7 @@ nav a{
     display: inline-block;
     color: white;
     padding: 10px;
-    transition: 0.3s;
+    transition: var(--transition-time);
 }
 
 nav a:hover{
