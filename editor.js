@@ -15,22 +15,23 @@ var sections = document.querySelectorAll("section");
 // (this should change their state or give them a new tag/class/whatever, that changes the style as defined in the CSS)
 // TODO --
 
-var size;
 function onLoad(){
-    size = document.querySelector("#fontSize");
-    elem = document.querySelector("#elemSelector");
     console.log("Load!");
 }
 
 function setFontSize(){
-    console.log("Changing text size to " + size.value);
-    console.log("Target element: " + elem.value);
+    var size = document.querySelector("#font-size");
+    var elem = document.querySelector("#elem-selector");
 
     var selectedElement = document.querySelector(elem.value);
-    if (selectedElement != null ){
-        document.querySelector(elem.value).style.setProperty('font-size', size.value+'px');
+    if (selectedElement == null ){
+        console.log("ERROR: element not found");
+        return;
     }
-            //document.querySelector(elem.value).style.fontSize = size.value +"px";
+
+    let property = 'font-size'
+    document.querySelector(elem.value).style.setProperty(property, size.value+'px');
+    console.log("Changed " + selectedElement + " " + property + " to " + size.value);
 }
 
 // BODY

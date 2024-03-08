@@ -317,10 +317,20 @@ figcaption{
 }
 
 form{
+    top: 0;
+    margin: 0 auto;
     background-color: rgba(0, 0, 0, 0.2);
+    padding: 5px 10px;
     width: fit-content;
-    padding: 5px;
+    height: 2em;
     border-radius: 50px;
+    display: inline-block;
+}
+
+input[type=range]{
+    margin: 0;
+    padding: 0;
+    bottom: 0;
 }
 
 .trivia{

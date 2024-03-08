@@ -54,19 +54,11 @@
             </p>
         </main>
         <footer>
-            <p>
-                All rights reserved for miss Rowling
-            </p>            
-
-            <form onsubmit="return false">
-                <label for="font-size">Font size: </label>
-                <input type="range" id="fontSize" name="font-size" min="8" max="24" value="16" step="4">
-                <button onclick="setFontSize()">Test</button>
-            </form>
-
-            <form onsubmit="return false">
-                <select name="elems" id="elemSelector">
+            <form>
+                <label for="elem-selector">Select element: </label>
+                <select name="element" id="elem-selector">
                     <option value="body">Body</option>
+                    <option value="main">Main</option>
                     <option value="article">Articles</option>
                     <option value="section">Sections</option>
                     <option value="header">Header</option>
@@ -74,6 +66,16 @@
                     <option value="footer">Footer</option>
                 </select>
             </form>
+
+            <form onsubmit="return false">
+                <label for="font-size">Select font size: </label>
+                <input type="range" id="font-size" name="font-size" min="8" max="24" value="16" step="4">
+                <button onclick="setFontSize()">Test</button>
+            </form>
+            
+            <p>
+                All rights reserved for miss Rowling
+            </p>            
         </footer>
     </body>    
 
