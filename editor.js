@@ -19,19 +19,21 @@ function onLoad(){
     console.log("Load!");
 }
 
-function setFontSize(){
-    var size = document.querySelector("#font-size");
-    var elem = document.querySelector("#elem-selector");
+function setPropertyToElement(){
+    var element = document.querySelector("#elem-selector").value;
+    var property = document.querySelector("#property-selector").value;
+    var value = document.querySelector("#font-size").value;
 
-    var selectedElement = document.querySelector(elem.value);
-    if (selectedElement == null ){
+    var selectedElements = document.querySelectorAll(element);
+    if (selectedElements.length == 0){
         console.log("ERROR: element not found");
         return;
     }
 
-    let property = 'font-size'
-    document.querySelector(elem.value).style.setProperty(property, size.value+'px');
-    console.log("Changed " + selectedElement + " " + property + " to " + size.value);
+    for (var selectedElement of selectedElements){
+        selectedElement.style.setProperty(property, value +'px');
+        console.log("Changed " + element + " " + property + " to " + value);
+    }
 }
 
 // BODY
