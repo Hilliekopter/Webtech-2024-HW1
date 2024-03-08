@@ -1,47 +1,45 @@
-:root{
+:root {
     --transition-time: 0.3s;
 }
 
-body{
-    background-image: linear-gradient(
-        to bottom,
-        rgba(213, 213, 213, 0.351),
-        rgba(77, 52, 33, 0.842)
-      ), url(Images/background.jpg);
+body {
+    background-image: linear-gradient(to bottom,
+            rgba(213, 213, 213, 0.351),
+            rgba(77, 52, 33, 0.842)), url(Images/background.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    background-color: rgb(189,189,213);
+    background-color: rgb(189, 189, 213);
     margin: 0;
     padding: 0;
-    
+
     font-size: 16px;
 
     color: black;
-    font-family: Arial,sans-serif;
+    font-family: Arial, sans-serif;
 }
 
-h1{
+h1 {
     font-size: 1.5em;
 }
 
-h2{
+h2 {
     font-size: 1.2em;
 }
 
-a{
+a {
     font-weight: bold;
     color: black;
     text-decoration-line: none;
     transition: color var(--transition-time);
 }
 
-a:hover{
+a:hover {
     color: red;
     transition: 0s;
 }
 
-a:active{
+a:active {
     color: darkred;
 }
 
@@ -49,37 +47,49 @@ a:active{
     scroll-margin-top: 50px;
 }
 
-button{
-    border-color: black;
+button {
     font-size: 1em;
 }
 
-header{
+input{
+    font-size: 1em;
+}
+
+input[type="number"]{
+    max-width: 60px;
+}
+
+select{
+    font-size: 1em;
+}
+
+header {
     height: 100%;
     width: 100%;
-    background-color:rgb(0, 0, 0);
+    background-color: rgb(0, 0, 0);
     background-image: url(Images/banner.png);
     background-position: center;
-    background-size:contain;
+    background-size: contain;
     background-repeat: no-repeat;
     padding-top: 2%;
 }
 
-header a{
+header a {
     color: white;
 }
 
-.title{
+.title {
     color: red;
     text-align: center;
     padding: 2%;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
-.title h1{
+
+.title h1 {
     font-size: xx-large;
 }
 
-nav{
+nav {
     background-color: rgb(62, 48, 24);
     position: sticky;
     top: 0;
@@ -88,7 +98,7 @@ nav{
     z-index: 10;
 }
 
-nav a{
+nav a {
     background-color: rgba(0, 0, 0, 0.1);
     border: 1px solid rgba(0, 0, 0, 0.25);
     border-radius: 15%;
@@ -99,18 +109,18 @@ nav a{
     transition: color var(--transition-time);
 }
 
-nav a:hover{
+nav a:hover {
     background-color: rgba(255, 255, 255, 0.6);
     color: black;
     transition: 0s;
 }
 
-nav a:active{
+nav a:active {
     background-color: rgba(255, 255, 255, 0.3);
     color: black;
 }
 
-footer{
+footer {
     color: rgb(134, 134, 134);
     text-align: center;
     background-color: rgb(77, 52, 33);
@@ -118,16 +128,19 @@ footer{
     box-shadow: 0px 5px 5px gray;
 }
 
-table, th, td{
+table,
+th,
+td {
     border: 1px solid black;
     border-collapse: collapse;
 }
 
-th, td{
+th,
+td {
     padding: 10px;
 }
 
-main{
+main {
     margin: auto;
     width: 80%;
     max-width: 1000px;
@@ -136,10 +149,10 @@ main{
     padding: 5%;
     padding-top: 2%;
     overflow: hidden;
-    background-color: rgb(238,238,247);
+    background-color: rgb(238, 238, 247);
 }
 
-.block-image__center{
+.block-image__center {
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -150,7 +163,7 @@ main{
     font-size: 0.8em;
 }
 
-.inline-image__left{
+.inline-image__left {
     float: left;
     box-sizing: border-box;
     max-width: 50%;
@@ -158,7 +171,7 @@ main{
     margin: 0px 20px 5px 0px;
 }
 
-.inline-image__right{
+.inline-image__right {
     float: right;
     box-sizing: border-box;
     margin-left: 20px;
@@ -167,12 +180,12 @@ main{
     margin: 0px 0px 5px 20px;
 }
 
-figcaption{
+figcaption {
     font-style: italic;
     font-size: 0.8em;
 }
 
-.credit{
+.credit {
     font-style: italic;
 }
 
@@ -196,7 +209,7 @@ figcaption{
     content: '';
     position: absolute;
     width: 16px;
-    background-color: rgb(25,13,0);
+    background-color: rgb(25, 13, 0);
     top: 0;
     bottom: 0;
     left: 50%;
@@ -207,7 +220,7 @@ figcaption{
     position: relative;
     transform: translateX(-50%);
     width: 100px;
-    left:50%;
+    left: 50%;
 }
 
 .timeline .timeline__year::before {
@@ -215,9 +228,9 @@ figcaption{
     position: absolute;
     z-index: 1;
     left: 0px;
-    border: medium solid rgb(25,13,0);
+    border: medium solid rgb(25, 13, 0);
     border-width: 10px 10px 10px 0;
-    border-color: transparent rgb(25,13,0) transparent transparent;
+    border-color: transparent rgb(25, 13, 0) transparent transparent;
 }
 
 .timeline .timeline__year::after {
@@ -227,13 +240,13 @@ figcaption{
     width: 0;
     z-index: 1;
     right: 0px;
-    border: medium solid rgb(25,13,0);
+    border: medium solid rgb(25, 13, 0);
     border-width: 10px 0 10px 40px;
     border-color: transparent transparent transparent white;
 }
 
 .timeline .timeline__yearContent {
-    background-color: rgb(99,53,19);
+    background-color: rgb(99, 53, 19);
     text-align: center;
 }
 
@@ -246,7 +259,7 @@ figcaption{
 
 /* Place the container to the left */
 .timeline .left {
-    left:0;
+    left: 0;
 }
 
 /* Place the container to the right */
@@ -263,7 +276,7 @@ figcaption{
     width: 0;
     z-index: 1;
     right: 0px;
-    border: medium solid rgb(25,13,0);
+    border: medium solid rgb(25, 13, 0);
     border-width: 10px 0 10px 40px;
 }
 
@@ -276,47 +289,49 @@ figcaption{
     width: 0;
     z-index: 1;
     left: 0px;
-    border: medium solid rgb(25,13,0);
+    border: medium solid rgb(25, 13, 0);
     border-width: 10px 40px 10px 0;
 }
 
 /* The actual content */
 .timeline .timeline__content {
     padding: 10px 20px;
-    background-color: rgb(25,13,0);
-    color: white; /* rgb(151,94,36); */
+    background-color: rgb(25, 13, 0);
+    color: white;
+    /* rgb(151,94,36); */
     position: relative;
-    border: inset rgb(151,94,36);
+    border: inset rgb(151, 94, 36);
 }
 
 /* Media queries - Responsive timeline on screens less than 600px wide */
 @media screen and (max-width: 600px) {
+
     /* Place the timelime to the left */
     .timeline::after {
         left: 31px;
     }
-    
+
     /* Full-width containers */
     .timeline .container {
         width: 100%;
         padding-left: 70px;
         padding-right: 25px;
     }
-    
+
     /* Make sure that all arrows are pointing leftwards */
     .timeline .container::before {
         left: 30px;
-        border: medium solid rgb(25,13,0);
+        border: medium solid rgb(25, 13, 0);
         border-width: 10px 40px 10px 0;
     }
-    
+
     /* Make all right containers behave like the left ones */
     .timeline .right {
         left: 0%;
     }
 }
 
-form{
+.selector-menu {
     vertical-align: top;
     background-color: rgba(0, 0, 0, 0.2);
     padding: 5px 10px;
@@ -325,26 +340,22 @@ form{
     display: inline-block;
 }
 
-input[type=range]{
-    height: 100%;
-    max-height: 20px;
-}
-
-label{
+label {
     padding: auto 0;
 }
 
-.trivia{
+.trivia {
     max-width: 100%;
     margin-bottom: 10px;
     border-radius: 20px;
     background-color: rgba(0, 0, 0, 0.1);
     text-align: center;
-    
-    overflow:hidden;
+
+    overflow: hidden;
 }
 
-.trivia p, .trivia button{
+.trivia p,
+.trivia button {
     margin: auto;
     padding: 10px;
     width: 50%;
@@ -352,55 +363,61 @@ label{
     box-sizing: border-box;
 }
 
-.trivia__question{
+.trivia__question {
     float: left;
     background-color: gray;
 }
 
-.trivia__answer{    
-    float: right;    
+.trivia__answer {
+    float: right;
     background-color: darkgray;
     color: red;
-    display: none;  
+    display: none;
 }
 
-.trivia__question:active + .trivia__answer{
+.trivia__question:active+.trivia__answer {
     display: block;
 }
 
 /* Extra small devices, such as phones */
-@media only screen and (max-width:600px){
-    header{    
+@media only screen and (max-width:600px) {
+    header {
         display: none;
     }
-    nav{
+
+    nav {
         max-height: 10%;
     }
-    nav a{
+
+    nav a {
         border-radius: 15%;
         margin: 0 1% 0;
         display: inline-block;
         padding: 2%;
         font-size: 90%;
     }
+
     main {
         width: 100%;
         box-sizing: border-box;
         padding: 10px;
     }
-    main h1{
+
+    main h1 {
         font-family: arial;
         font-size: 40px;
         line-height: 36px;
     }
-    main p{
+
+    main p {
         font-family: arial;
         font-size: 16px;
         line-height: 24px;
     }
-    .inline-image__left{
+
+    .inline-image__left {
         margin: 0px;
-        float:none;
+        float: none;
         display: block;
         margin-left: auto;
         margin-right: auto;
@@ -408,9 +425,10 @@ label{
         width: 300px;
         max-width: 90%;
     }
-    .inline-image__right{
+
+    .inline-image__right {
         margin: 0px;
-        float:none;
+        float: none;
         display: block;
         margin-left: auto;
         margin-right: auto;
@@ -421,15 +439,10 @@ label{
 }
 
 /* Extra large devices, such as large laptops/desktops */
-@media only screen and (min-width:1200px){
-    
-}
+@media only screen and (min-width:1200px) {}
 
 /* devices in landscape orientation */
-@media only screen and (orientation: landscape)
-{
-
-}  
+@media only screen and (orientation: landscape) {}
 
 
 /*      ---  SEPARATION  ---        */
