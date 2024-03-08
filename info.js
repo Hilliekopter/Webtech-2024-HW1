@@ -15,27 +15,27 @@ function setupInfo() {
 
 
 class CreativeWork {
-    #title;
-    #creationYear;
-    #authors;
+    #_title;
+    #_creationYear;
+    #_authors;
 
     get title() {
-        return this.#title;
+        return this.#_title;
     }
     
     set title(value) {
-        if(typeof value !== 'string') {
+        if(typeof typeof value !== 'string') {
             throw new Error('Title must be a string!');
         }
-        this.#title = value;
+        this.#_title = value;
     }
 
     get creationYear() {
-        return this.#creationYear;
+        return this.#_creationYear;
     }
 
     set creationYear(value) {
-        if(Number.isInteger(value)) {
+        if(!Number.isInteger(value)) {
             throw new Error('Creation year must be an integer!');
         }
         
@@ -45,11 +45,11 @@ class CreativeWork {
             throw new Error('Creation year can not be in the future!');
         }
         
-        this.#creationYear = value;
+        this.#_creationYear = value;
     }
 
     get authors() {
-        return this.#authors;
+        return this.#_authors;
     }
 
     set authors(value) {
@@ -57,16 +57,14 @@ class CreativeWork {
             throw new Error('Authors must be an array!');
         } 
         
-        Array.every(item => {
-            if(!item instanceof Author) {
-                throw new Error('Not all elements in array are of type Author');
-            }
-        });
+        if (!value.every(item => item instanceof Author)) {
+            throw new Error('Not all elements in array are of type Author!');
+        }
 
-        this.#authors = value;
+        this.#_authors = value;
     }
 
-    constructor(title, creationYear, authors) {
+    constructor(title = '', creationYear = 0, authors = []) {
         this.title = title;
         this.creationYear = creationYear;
         this.authors = authors;
@@ -74,25 +72,25 @@ class CreativeWork {
 }
 
 class Book extends CreativeWork {
-    #genre; // String
-    #publisher; // Publisher class
-    #cover; // link to an image
-    #plot; // String
+    #_genre; // String
+    #_publisher; // Publisher class
+    #_cover; // link to an image
+    #_plot; // String
 
     get genre() {
-        return this.#genre;
+        return this.#_genre;
     }
 
     set genre(value) {
-        if(value !== 'string'){
+        if(typeof value !== 'string'){
             throw new Error('Genre must be a String!');
         }
 
-        this.#genre = value;
+        this.#_genre = value;
     }
 
     get publisher() {
-        return this.#publisher;
+        return this.#_publisher;
     }
 
     set publisher(value) {
@@ -102,17 +100,17 @@ class Book extends CreativeWork {
     }
 
     get cover() {
-        return this.#cover;
+        return this.#_cover;
     }
 
     set cover(value) {
-        if(!this.#isUriImage(value)) {
-            throw new Error('Cover must link to an actual image! (jpg, jpeg, tiff, png, gif, bmp) ');
+        if(!this.#_isUriImage(value)) {
+            throw new Error('Cover must link to an actual image! (jpg, jpeg, tiff, png, gif, bmp)');
         }
-        this.#cover = value;
+        this.#_cover = value;
     }
 
-    #isUriImage(uri) {
+    #_isUriImage(uri) {
         //make sure we remove any nasty GET params 
         uri = uri.split('?')[0];
         //moving on, split the uri into parts that had dots before them
@@ -128,18 +126,18 @@ class Book extends CreativeWork {
     }
 
     get plot() {
-        return this.#plot;
+        return this.#_plot;
     }
 
     set plot(value) {
-        if(value !== 'string') {
-            throw new Error('Plot must be of type String');
+        if(typeof value !== 'string') {
+            throw new Error('Plot must be of type String!');
         }
 
-        this.#plot = value;
+        this.#_plot = value;
     }
 
-    constructor(title, creationYear, authors, genre, publisher, cover, plot) {
+    constructor(title = '', creationYear = 0, authors = [], genre = '', publisher = '', cover = '', plot = '') {
         super(title, creationYear, authors);
         this.genre = genre;
         this.publisher = publisher;
@@ -149,27 +147,147 @@ class Book extends CreativeWork {
 }
 
 class Person {
-    
+    #_name; // string
+    #_birthYear; // int
+
+    get name() {
+        return this.#_name;
+    }
+
+    set name(value) {
+        if(typeof value !== 'string') {
+            throw new Error('Name must be of type String!');
+        }
+
+        this.#_name = value;
+    }
+
+    get birthYear() {
+        return this.#_birthYear;
+    }
+
+    set birthYear(value) {
+        if(!Number.isInteger(value)) {
+            throw new Error('Birth year must be an integer!');
+        }
+        
+        if(value > new Date().getFullYear()) {
+            throw new Error('Birth year can not be in the future!');
+        }
+        
+        this.#_birthYear = value;
+    }
+
+    constructor(name = '', birthYear = 0) {
+        this.name = name;
+        this.birthYear = birthYear;
+    }
 }
 
 class Author extends Person {
-    // Class Author describes an author of the book. 
-    // It extends class Person. 
-    // Author should inherit name and year of birth from Person 
-    // and add an array of titles (strings) of the books this 
-    // author has written and a link to the Wikipedia page about 
-    // this author.
+    #_titles; // [string]
+    #_wikiLink; // string (url)
+
+    get titles() {
+        return this.#_titles;
+    }
+
+    set titles(value) {
+        if(!Array.isArray(value)) {
+            throw new Error('Titles must be an array!');
+        } 
+        
+        if(!value.every(item => typeof item === 'string')) {
+            throw new Error('Not all elements in array are of type String!');
+        };
+
+        this.#_titles = value;
+    }
+
+    get wikiLink() {
+        return this.#_wikiLink;
+    }
+
+    set wikiLink(value) {
+        // Regular expression for a basic URL pattern
+        var urlPattern = /^(https?:\/\/)?([\da-z.-]+)\.([a-z.]{2,6})([/\w.-]*)*\/?$/;
+
+        // Test the URL against the pattern
+        if(!urlPattern.test(value)) {
+            throw new Error('Given URL is not valid!');
+        }
+
+        this.#_wikiLink = value;
+    }
+
+    constructor(name= '', birthYear = 0, titles = [], wikiLink = '') {
+        super(name, birthYear);
+        this.titles = titles;
+        this.wikiLink = wikiLink;
+    }
 }
 
 class Company {
+    #_name; // string
+    #_wikiLink; // string (url)
 
+    get name() {
+        return this.#_name;
+    }
+
+    set name(value) {
+        if(typeof value !== 'string') {
+            throw new Error('Name must be of type String!');
+        }
+
+        this.#_name = value;
+    }
+
+    get wikiLink() {
+        return this.#_wikiLink;
+    }
+
+    set wikiLink(value) {
+        // Regular expression for a basic URL pattern
+        var urlPattern = /^(https?:\/\/)?([\da-z.-]+)\.([a-z.]{2,6})([/\w.-]*)*\/?$/;
+
+        // Test the URL against the pattern
+        if(!urlPattern.test(value)) {
+            throw new Error('Given URL is not valid!');
+        }
+
+        this.#_wikiLink = value;
+    }
+
+    constructor(name = '', wikiLink = '') {
+        this.name = name;
+        this.wikiLink = wikiLink;
+    }
 }
 
 class Publisher extends Company {
-    //Publisher describes the publishing house that published a book. 
-    // It extends class Company. 
-    // Company has a name and a Wikipedia page. 
-    // Publisher has an array of titles (strings) of books it has published.
+    #_titles;
+
+    get titles() {
+        return this.#_titles;
+    }
+
+    set titles(value) {
+        if(!Array.isArray(value)) {
+            throw new Error('Titles must be an array!');
+        } 
+        
+        if(!value.every(item => typeof item === 'string')) {
+            throw new Error('Not all elements in array are of type String!');
+        };
+
+        this.#_titles = value;
+    }
+
+    constructor(name = '', wikiLink = '', titles = []) {
+        super(name, wikiLink);
+        this.titles = titles;
+    }
 }
 
 
