@@ -54,19 +54,11 @@
             </p>
         </main>
         <footer>
-            <p>
-                All rights reserved for miss Rowling
-            </p>            
-
-            <form onsubmit="return false">
-                <label for="font-size">Font size: </label>
-                <input type="range" id="fontSize" name="font-size" min="8" max="24" value="16" step="4">
-                <button onclick="setFontSize()">Test</button>
-            </form>
-
-            <form onsubmit="return false">
-                <select name="elems" id="elemSelector">
+            <form>
+                <label for="elem-selector">Select element: </label>
+                <select name="element" id="elem-selector">
                     <option value="body">Body</option>
+                    <option value="main">Main</option>
                     <option value="article">Articles</option>
                     <option value="section">Sections</option>
                     <option value="header">Header</option>
@@ -74,6 +66,35 @@
                     <option value="footer">Footer</option>
                 </select>
             </form>
+
+            <form>
+                <label for="property-selector">Select property: </label>
+                <select name="property" id="property-selector">
+                    <option value="font-size">Font size</option>
+                    <option value="color">Text color</option>
+                    <option value="background-color">Background color</option>
+                </select>
+            </form>
+
+            <form onsubmit="return false">
+                <label for="font-size">Select font size: </label>
+                <input type="range" id="font-size" name="font-size" min="8" max="32" value="16" step="4" list="font-size__suggestions">
+                <button onclick="setPropertyToElement()">Test</button>
+            </form>
+
+            <datalist id="font-size__suggestions">
+                <option value="8"></option>
+                <option value="12"></option>
+                <option value="16"></option>
+                <option value="20"></option>
+                <option value="24"></option>
+                <option value="28"></option>
+                <option value="32"></option>
+            </datalist>
+            
+            <p>
+                All rights reserved for miss Rowling
+            </p>            
         </footer>
     </body>    
 
