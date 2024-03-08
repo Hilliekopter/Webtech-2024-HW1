@@ -60,6 +60,9 @@ function createValueSelector() {
             newNode.setAttribute("value", "16");
             label = "font size";
             break;
+        case "font-family":
+            label = "font family";
+            break;
         case "color":
             newNode.setAttribute("type", "color");
             label = "text color";
