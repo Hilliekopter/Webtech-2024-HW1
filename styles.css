@@ -63,6 +63,23 @@ select{
     font-size: 1em;
 }
 
+label {
+    padding: auto 0;
+}
+
+.selector-menu {
+    background-color: rgba(0, 0, 0, 0.2);
+    display: inline-flex;
+    align-items: center;
+    padding: 5px 10px;
+    height: 2em;
+    border-radius: 50px;
+}
+
+.selector-menu * {
+    margin: 5px;
+}
+
 header {
     height: 100%;
     width: 100%;
@@ -329,19 +346,6 @@ figcaption {
     .timeline .right {
         left: 0%;
     }
-}
-
-.selector-menu {
-    vertical-align: top;
-    background-color: rgba(0, 0, 0, 0.2);
-    padding: 5px 10px;
-    height: 2em;
-    border-radius: 50px;
-    display: inline-block;
-}
-
-label {
-    padding: auto 0;
 }
 
 .trivia {
