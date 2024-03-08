@@ -123,7 +123,7 @@ th, td{
     padding: 10px;
 }
 
-.content{
+main{
     margin: auto;
     width: 80%;
     max-width: 1000px;
@@ -368,17 +368,17 @@ form{
         padding: 2%;
         font-size: 90%;
     }
-    .content {
+    main {
         width: 100%;
         box-sizing: border-box;
         padding: 10px;
     }
-    .content h1{
+    main h1{
         font-family: arial;
         font-size: 40px;
         line-height: 36px;
     }
-    .content p{
+    main p{
         font-family: arial;
         font-size: 16px;
         line-height: 24px;
