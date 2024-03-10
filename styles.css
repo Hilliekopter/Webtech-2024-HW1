@@ -124,7 +124,7 @@ nav a {
     display: inline-block;
     color: white;
     padding: 10px;
-    transition: color var(--transition-time);
+    transition: background-color var(--transition-time), color var(--transition-time);
 }
 
 nav a:hover {
