@@ -52,15 +52,15 @@ button {
     font-size: 1em;
 }
 
-input{
+input {
     font-size: 1em;
 }
 
-input[type="number"]{
+input[type="number"] {
     max-width: 60px;
 }
 
-select{
+select {
     font-size: 1em;
 }
 
@@ -124,7 +124,7 @@ nav a {
     display: inline-block;
     color: white;
     padding: 10px;
-    transition: color var(--transition-time);
+    transition: background-color var(--transition-time), color var(--transition-time);
 }
 
 nav a:hover {
