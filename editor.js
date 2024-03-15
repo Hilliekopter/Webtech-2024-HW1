@@ -17,13 +17,8 @@ var sections = document.querySelectorAll("section");
 
 function onLoad() {
     console.log("Load!");
+    createTagSelector();
     createValueSelector();
-
-    document.querySelector("#value-selector").addEventListener("keypress", function (event) {
-        if (event.key === "Enter") {
-            document.querySelector("#submit-value-button").click();
-        }
-    });
 }
 
 function setPropertyToElement() {
@@ -47,7 +42,31 @@ function setPropertyToElement() {
     }
 }
 
+function createTagSelector() {
+    console.log("Creating tag selector");
+    var newNode = document.createElement("select");
+    newNode.setAttribute("name", "element");
+    newNode.setAttribute("id", "elem-selector");
+
+    var tags = ["body", "main", "article", "section", "header", "nav", "footer"];
+    for (var tag of tags) {
+        if (document.querySelectorAll(tag).length > 0)
+            newNode.appendChild(createElemOption(tag));
+    }
+
+    var selector = document.querySelector("#elem-selector-menu");
+    selector.replaceChild(newNode, selector.children[1]);
+}
+
+function createElemOption(tag) {
+    var option = document.createElement("option");
+    option.setAttribute("value", tag);
+    option.innerHTML = tag;
+    return option;
+}
+
 function createValueSelector() {
+    console.log("Creating value selector");
     var property = document.querySelector("#property-selector").value;
 
     var label;
@@ -79,6 +98,12 @@ function createValueSelector() {
     selector.children[0].innerHTML = "Select " + label + ": ";
     selector.replaceChild(newNode, selector.children[1]);
 
+    newNode.addEventListener("keypress", function (event) {
+        if (event.key === "Enter") {
+            console.log("[Enter] was pressed");
+            document.querySelector("#submit-value-button").click();
+        }
+    });
 }
 
 // BODY
