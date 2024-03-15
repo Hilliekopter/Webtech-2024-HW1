@@ -30,7 +30,7 @@ h2 {
 
 a {
     font-weight: bold;
-    color: black;
+    color:inherit;
     text-decoration-line: none;
     transition: color var(--transition-time);
 }
