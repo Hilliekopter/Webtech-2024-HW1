@@ -1,7 +1,9 @@
+console.log("Load!");
+createTagSelector();
+createValueSelector();
+
 function onLoad() {
-    console.log("Load!");
-    createTagSelector();
-    createValueSelector();
+
 }
 
 function setPropertyToElement() {
