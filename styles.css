@@ -28,6 +28,11 @@ h2 {
     font-size: 1.2em;
 }
 
+.subtitle {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
 a {
     font-weight: bold;
     font-size: inherit;
@@ -161,6 +166,11 @@ td {
 th,
 td {
     padding: 10px;
+}
+
+thead {
+    background-color: gray;
+    font-weight: bold;
 }
 
 main {
