@@ -13,7 +13,7 @@
     <link rel="icon" type="image/x-icon" href="Images/favicon.png">
 </head>
 
-<body>
+<body onload="onLoad()">
     <header>
         <div class="title">
             <h1><a href="index.html">Harry Potter and the Philosopher's Stone</a></h1>
@@ -121,10 +121,50 @@
         </p>
     </main>
     <footer>
+        <div id ="elem-selector-menu" class="selector-menu">
+            <label for="elem-selector">Select element: </label>
+            <select name="element" id="elem-selector">
+            </select>
+        </div>
+
+        <div class="selector-menu">
+            <label for="property-selector">Select property: </label>
+            <select onchange="createValueSelector()" name="property" id="property-selector">
+                <option value="font-size">Font size</option>
+                <option value="font-family">Font family</option>
+                <option value="color">Text color</option>
+                <option value="background-color">Background color</option>
+            </select>
+        </div>
+
+        <div id="value-selector-menu" class="selector-menu">
+            <label for="value-selector">Select font size: </label>
+            <input>
+            <button id="submit-value-button" onclick="setPropertyToElement()">Apply</button>
+        </div>
+
+        <datalist id="fonts">
+            <option>Times New Roman</option>
+            <option>Georgia</option>
+            <option>Garamond</option>
+            <option>Arial</option>
+            <option>Verdana</option>
+            <option>Helvetica</option>
+            <option>Courier New</option>
+            <option>Lucida Console</option>
+            <option>Monaco</option>
+            <option>Brush Script M7</option>
+            <option>Lucida Handwriting</option>
+            <option>Copperplate</option>
+            <option>Papyrus</option>
+        </datalist>
+        
         <p>
-            All rights reserved for miss Rowling
+            All rights reserved for <span title="J.K. Rowling, author of the Harry Potter Franchise.">J. K. Rowling</span>
         </p>
     </footer>
 </body>
+
+<script src="editor.js"></script>
 
 </html>
