@@ -1,16 +1,7 @@
-// Possible issues:
-// 1. Constructors dont require the user to enter any data, which can 
-// lead to nonsense data being saved or displayed. 
-// 2. Constructors get very large, so maybe not everything should 
-// already have to be defined in the constructor.
-
-//const { auth } = require("node-red");
-
-
 class CreativeWork {
-    #_title;
-    #_creationYear;
-    #_authors;
+    #_title; // string
+    #_creationYear; // int
+    #_authors; // [string]
 
     get title() {
         return this.#_title;
@@ -261,7 +252,7 @@ class Company {
 }
 
 class Publisher extends Company {
-    #_titles;
+    #_titles; // [string]
 
     get titles() {
         return this.#_titles;
@@ -288,7 +279,6 @@ class Publisher extends Company {
 
 
 window.addEventListener("load", setupContent());
-
 
 function setupContent() {
     // Author
@@ -538,10 +528,16 @@ function setupContent() {
         "An 11-year-old orphan living with his unwelcoming aunt, uncle, and cousin, who learns of his own fame as a wizard known to have survived his parents' murder at the hands of the dark wizard Lord Voldemort as an infant when he is accepted to Hogwarts School of Witchcraft and Wizardry."
         );
     
+    // Defining HTML content
     const mainContent = document.getElementById("main-content");
     
     const titleElement = document.createElement("h2");
     titleElement.textContent = harryPotterBook.title;
+    
+    const coverElement = document.createElement("img");
+    coverElement.src = harryPotterBook.cover;
+    coverElement.alt = "Harry Potter and the PhilosBook Cover";
+    coverElement.className = "inline-image__right";
 
     const genreElement = document.createElement("p");
     genreElement.textContent = "Genre: " + harryPotterBook.genre;
@@ -550,24 +546,31 @@ function setupContent() {
     yearElement.textContent = "Year: " + harryPotterBook.creationYear;
 
     const authorsElement = document.createElement("p");
-    authorsElement.textContent = "Authors: " + harryPotterBook.authors.map(author => author.name).join(", ");
+    authorsElement.textContent = "Authors: "; 
+    
+    harryPotterBook.authors.forEach(author => {
+        const authorSpan = document.createElement("span");
+        authorSpan.textContent = author.name;
+        authorSpan.title = author.name + " was born in " + author.birthYear + ". For more info visit " + author.wikiLink;
+        authorsElement.appendChild(authorSpan);
+        if(harryPotterBook.authors > 1)
+            authorsElement.appendChild(document.createTextNode(", "));
+    });
 
     const publisherElement = document.createElement("p");
     publisherElement.textContent = "Publisher: " + harryPotterBook.publisher.name;
-
-    const coverElement = document.createElement("img");
-    coverElement.src = harryPotterBook.cover;
-    coverElement.alt = "Harry Potter and the PhilosBook Cover";
+    publisherElement.title = bloomsbury.name + " is the publisher of the Harry Potter books. For more info visit " + bloomsbury.wikiLink;
 
     const plotElement = document.createElement("p");
     plotElement.textContent = "Plot: " + harryPotterBook.plot;
 
+    // Appending HTML elements to content 
     mainContent.appendChild(titleElement);
+    mainContent.appendChild(coverElement);
     mainContent.appendChild(genreElement);
     mainContent.appendChild(yearElement);
     mainContent.appendChild(authorsElement);
     mainContent.appendChild(publisherElement);
-    mainContent.appendChild(coverElement);
     mainContent.appendChild(plotElement);
 }
 
