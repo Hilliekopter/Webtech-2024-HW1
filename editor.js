@@ -1,20 +1,3 @@
-// This script is included in every HTML-script itself.
-
-// Within this HTML script, we want to find each of its elements that is included in this list:
-// [body, header, footer, aside, articles, sections]
-// TODO --
-
-var body = document.querySelector("body");        // should be one      encapsualtes the rest in here
-var header = document.querySelector("header");    // should be one
-var footer = document.querySelector("footer");    // should be one
-var asides = document.querySelectorAll("aside");
-var articles = document.querySelectorAll("article");
-var sections = document.querySelectorAll("section");
-
-// And if they exist, put them in a menu that allows to change their style.
-// (this should change their state or give them a new tag/class/whatever, that changes the style as defined in the CSS)
-// TODO --
-
 function onLoad() {
     console.log("Load!");
     createTagSelector();
@@ -51,14 +34,14 @@ function createTagSelector() {
     var tags = ["body", "main", "article", "section", "header", "nav", "footer"];
     for (var tag of tags) {
         if (document.querySelectorAll(tag).length > 0)
-            newNode.appendChild(createElemOption(tag));
+            newNode.appendChild(getOptionNode(tag));
     }
 
     var selector = document.querySelector("#elem-selector-menu");
     selector.replaceChild(newNode, selector.children[1]);
 }
 
-function createElemOption(tag) {
+function getOptionNode(tag) {
     var option = document.createElement("option");
     option.setAttribute("value", tag);
     option.innerHTML = tag;
@@ -130,7 +113,3 @@ function createValueSelector() {
 // Mandatory:  font size & color
 // light-mode/dark-mode should be directed by BODY.. but i dont think thats how it'll work in CSS as it overwrites what it inherits?
 // dark mode is a black block with white letters.
-
-
-// SECTION
-// ..
