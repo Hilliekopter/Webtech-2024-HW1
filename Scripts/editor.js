@@ -2,10 +2,6 @@ console.log("Load!");
 createTagSelector();
 createValueSelector();
 
-function onLoad() {
-
-}
-
 function setPropertyToElement() {
     var tag = document.querySelector("#elem-selector").value;
     var property = document.querySelector("#property-selector").value;
