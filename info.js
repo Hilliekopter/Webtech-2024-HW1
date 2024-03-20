@@ -276,8 +276,6 @@ class Publisher extends Company {
     }
 }
 
-
-
 window.addEventListener("load", setupContent());
 
 function setupContent() {
