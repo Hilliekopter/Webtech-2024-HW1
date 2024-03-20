@@ -1,9 +1,7 @@
-function onLoad() {
-    console.log("Load!");
-    createTagSelector();
-    createValueSelector();
-}
+createTagSelector();
+createValueSelector();
 
+// Set CSS value for property
 function setPropertyToElement() {
     var tag = document.querySelector("#elem-selector").value;
     var property = document.querySelector("#property-selector").value;
@@ -25,6 +23,8 @@ function setPropertyToElement() {
     }
 }
 
+// Dynamically create selector for tags,
+// depening on which tags the page does (not) have
 function createTagSelector() {
     console.log("Creating tag selector");
     var newNode = document.createElement("select");
@@ -41,6 +41,7 @@ function createTagSelector() {
     selector.replaceChild(newNode, selector.children[1]);
 }
 
+// Create appropriate option element for any given tag
 function getOptionNode(tag) {
     var option = document.createElement("option");
     option.setAttribute("value", tag);
@@ -48,6 +49,8 @@ function getOptionNode(tag) {
     return option;
 }
 
+// Create selector for property values,
+// depending on which property was selected
 function createValueSelector() {
     console.log("Creating value selector");
     var property = document.querySelector("#property-selector").value;
@@ -81,6 +84,7 @@ function createValueSelector() {
     selector.children[0].innerHTML = "Select " + label + ": ";
     selector.replaceChild(newNode, selector.children[1]);
 
+    // If user presses ENTER on input box, apply input
     newNode.addEventListener("keypress", function (event) {
         if (event.key === "Enter") {
             console.log("[Enter] was pressed");
@@ -88,28 +92,3 @@ function createValueSelector() {
         }
     });
 }
-
-// BODY
-// allow to change dark-mode/light-mode
-// Mandatory:  font size & color
-
-
-// HEADER
-// shrink banner, hide banner?
-// Mandatory:  font size & color
-
-
-// FOOTER
-// Mandatory:  font size & color
-// ..
-
-
-// ASIDES
-// Mandatory:  font size & color
-// snap them to the other side of the screen, from right-side to left-side?
-
-
-// ARTICLES
-// Mandatory:  font size & color
-// light-mode/dark-mode should be directed by BODY.. but i dont think thats how it'll work in CSS as it overwrites what it inherits?
-// dark mode is a black block with white letters.

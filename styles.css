@@ -28,6 +28,11 @@ h2 {
     font-size: 1.2em;
 }
 
+.subtitle {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
 a {
     font-weight: bold;
     font-size: inherit;
@@ -59,6 +64,10 @@ input {
 
 input[type="number"] {
     max-width: 60px;
+}
+
+input[type="text"] {
+    max-width: 120px;
 }
 
 select {
@@ -157,6 +166,11 @@ td {
 th,
 td {
     padding: 10px;
+}
+
+thead {
+    background-color: gray;
+    font-weight: bold;
 }
 
 main {
