@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Home - Harry Potter and the Philosopher's Stone</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="Harry Potter Unofficial website, homepage">
+    <meta name="keywords" content="Harry Potter, Wiki, Fanpage, Books, Homepage">
+    <meta name="author" content="Group22-INFOB2WT">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/x-icon" href="Images/favicon.png">
+</head>
+
+<body>
+    <header>
+        <div class="title">
+            <h1><a href="index.html">Harry Potter and the Philosopher's Stone</a></h1>
+            <span class="subtitle">The unofficial website</span>
+        </div>
+    </header>
+    <nav>
+        <a href="summary.html">Summary</a>
+        <a href="characters.html">Characters</a>
+        <a href="timeline.html">Timeline</a>
+        <a href="trivia.html">Trivia</a>
+        <a href="filming.html">Filming</a>
+        <a href="author.html">Author</a>
+        <a href="info.html">Info</a>
+        <a href="login.html">Login</a>
+    </nav>
+
+    <main>
+        <h1>Welcome to the unofficial Harry Potter website!</h1>
+        <p>
+            This is a fan page dedicated to the beautiful masterpiece 'Harry Potter and the Philosopher’s Stone'
+            by <span title="J.K. Rowling, author of the Harry Potter Franchise.">J. K. Rowling</span>. 
+            'Harry Potter and the Philosopher’s Stone' is a book about a young boy who discovers
+            to be a wizard, and his journey as a student in the wizarding world at Hogwarts.
+        </p>
+        <img class="inline-image__right" src="Images/book_cover.webp" alt="The cover of the book">
+        <br>
+        <h2>About the Contents</h2>
+        <p>
+            On this website, you can find information on the <a href="summary.html">summary</a> of the book, a
+            collection of the
+            <a href="characters.html">characters</a> appearing in the book and their brief description, a <a
+                href="timeline.html">timeline</a> of the
+            Harry Potter universe, an overview of the book's
+            <a href="trivia.html">trivia</a> about the book and its author, information on the
+            <a href="filming.html">movie adaptation</a> of the book, and information on the <a
+                href="author.html">author</a> herself.
+        </p>
+        <br>
+        <h2>About the Creators</h2>
+        <p>
+            This website was made by a group of three students, who are learning how to develop websites and write the
+            languages HTML, CSS and JavaScript. The website you see before you was the first assignment for their course
+            at
+            the University of Utrecht, 'Web-Technology'.
+        </p>
+    </main>
+    <footer>
+        <div id ="elem-selector-menu" class="selector-menu">
+            <label for="elem-selector">Select element: </label>
+            <select name="element" id="elem-selector">
+            </select>
+        </div>
+
+        <div class="selector-menu">
+            <label for="property-selector">Select property: </label>
+            <select onchange="createValueSelector()" name="property" id="property-selector">
+                <option value="font-size">Font size</option>
+                <option value="font-family">Font family</option>
+                <option value="color">Text color</option>
+                <option value="background-color">Background color</option>
+            </select>
+        </div>
+
+        <div id="value-selector-menu" class="selector-menu">
+            <label for="value-selector">Select font size: </label>
+            <input>
+            <button id="submit-value-button" onclick="setPropertyToElement()">Apply</button>
+        </div>
+
+        <datalist id="fonts">
+            <option>Times New Roman</option>
+            <option>Georgia</option>
+            <option>Garamond</option>
+            <option>Arial</option>
+            <option>Arial Narrow</option>
+            <option>Verdana</option>
+            <option>Helvetica</option>
+            <option>Courier New</option>
+            <option>Monospace</option>
+            <option>Lucida Console</option>
+            <option>Lucida Handwriting</option>
+            <option>Papyrus</option>
+            <option>Tahoma</option>
+            <option>Trebuchet MS</option>
+            <option>Brush Script MT</option>
+            <option>Comic Sans MS</option>
+        </datalist>
+        
+        <p>
+            All rights reserved for <span title="J.K. Rowling, author of the Harry Potter Franchise.">J. K. Rowling</span>.
+        </p>
+    </footer>
+
+    <script src="Scripts/editor.js"></script>
+</body>
+
+</html>

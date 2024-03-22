@@ -2,10 +2,10 @@
 <html lang="en">
 
 <head>
-    <title>Home - Harry Potter and the Philosopher's Stone</title>
+    <title>Login - Harry Potter and the Philosopher's Stone</title>
     <meta charset="UTF-8">
-    <meta name="description" content="Harry Potter Unofficial website, homepage">
-    <meta name="keywords" content="Harry Potter, Wiki, Fanpage, Books, Homepage">
+    <meta name="description" content="Harry Potter Unofficial website, Films">
+    <meta name="keywords" content="Harry Potter, Wiki, Fanpage, Books, Films">
     <meta name="author" content="Group22-INFOB2WT">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -31,35 +31,16 @@
     </nav>
 
     <main>
-        <h1>Welcome to the unofficial Harry Potter website!</h1>
-        <p>
-            This is a fan page dedicated to the beautiful masterpiece 'Harry Potter and the Philosopher’s Stone'
-            by <span title="J.K. Rowling, author of the Harry Potter Franchise.">J. K. Rowling</span>. 
-            'Harry Potter and the Philosopher’s Stone' is a book about a young boy who discovers
-            to be a wizard, and his journey as a student in the wizarding world at Hogwarts.
-        </p>
-        <img class="inline-image__right" src="Images/book_cover.webp" alt="The cover of the book">
-        <br>
-        <h2>About the Contents</h2>
-        <p>
-            On this website, you can find information on the <a href="summary.html">summary</a> of the book, a
-            collection of the
-            <a href="characters.html">characters</a> appearing in the book and their brief description, a <a
-                href="timeline.html">timeline</a> of the
-            Harry Potter universe, an overview of the book's
-            <a href="trivia.html">trivia</a> about the book and its author, information on the
-            <a href="filming.html">movie adaptation</a> of the book, and information on the <a
-                href="author.html">author</a> herself.
-        </p>
-        <br>
-        <h2>About the Creators</h2>
-        <p>
-            This website was made by a group of three students, who are learning how to develop websites and write the
-            languages HTML, CSS and JavaScript. The website you see before you was the first assignment for their course
-            at
-            the University of Utrecht, 'Web-Technology'.
-        </p>
+        <h1>Account</h1>
+        <form id="login">
+            <input name="uname" type="text" placeholder="Enter Username" required>
+            <input name="password" type="password" placeholder="Enter Password" required>
+            <label><input type="checkbox" name="remember">Remember me</label>
+            <button type="submit">Log in</button>
+        </form>
+        <p>No account? <a>Create an account</a></p>
     </main>
+
     <footer>
         <div id ="elem-selector-menu" class="selector-menu">
             <label for="elem-selector">Select element: </label>
@@ -103,7 +84,7 @@
         </datalist>
         
         <p>
-            All rights reserved for <span title="J.K. Rowling, author of the Harry Potter Franchise.">J. K. Rowling</span>.
+            All rights reserved for <span title="J.K. Rowling, author of the Harry Potter Franchise.">J. K. Rowling</span>
         </p>
     </footer>
 
