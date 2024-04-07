@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Login - Harry Potter and the Philosopher's Stone</title>
+    <title>Sign Up - Harry Potter and the Philosopher's Stone</title>
     <meta charset="UTF-8">
     <meta name="description" content="Harry Potter Unofficial website, Films">
     <meta name="keywords" content="Harry Potter, Wiki, Fanpage, Books, Films">
@@ -32,15 +32,17 @@
 
     <main>
         <h1>Account</h1>
-        <form id="login">
+        <form id="signup">
+            <p>First name: <input name="fname" type="text" placeholder="First name.." required/></p>
+            <p>Last name: <input name="lname" type="text" placeholder="Last name.." required/></p>
+            <p>E-mail: <input name="email" type="email" placeholder="example@mail.org" required/></p>
+            <p>Address: <input name="address" type="text" placeholder="Streetname 1, City" required/></p>
             <p>Username: <input name="uname" type="text" placeholder="Enter Username" required/></p>
             <p>Password: <input name="password" type="password" placeholder="Enter Password" required/></p>
             <p><label><input type="checkbox" name="remember">Remember me</label></p>
-            <p><input class="button" type="submit">Log in</button></p>
+            <p><button type="submit">Sign Up</button></p>
         </form>
         <p>No account? <a>Create an account</a></p>
-
-        <script src="Scripts/login.js"></script>
     </main>
 
     <footer>
