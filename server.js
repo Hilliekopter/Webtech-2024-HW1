@@ -23,14 +23,22 @@ app.get('/', function(req, res) {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-// account creation handler?
+// login handler
 app.get('/login.html', function(req,res) {
+  console.log("login request received on server");
   console.log(req.url);
-  res.status(200).send("OK");
-  
+
   res.send( login(username,password) );
  
 });
+
+// signup handler
+app.get('/signup.html', function(req,res) {
+  const { fname , lname , email , address , uname , password } = req.body;
+  
+  res.send( signup(fname , lname , email , address , uname , password ) );
+});
+
 
 app.get('/filming.html', function(req, res) {
   res.sendFile(path.join(__dirname, 'filming.html'));
