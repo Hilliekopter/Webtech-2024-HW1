@@ -1,6 +1,8 @@
 const express = require('express');
+const morgan = require('morgan');
 const path = require('path');
 const bcrypt = require('bcrypt');
+
 
 // initialize file and check existence
 var fs = require("fs");
@@ -19,6 +21,15 @@ const app = express();
 const port = 8022;
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: false }));
+
+// HTTP request log
+const logsDir = path.join(__dirname, 'logs');
+// create directory if it doesn't exist yet
+if (!fs.existsSync(logsDir)) {
+  fs.mkdirSync(logsDir);
+}
+const logStream = fs.createWriteStream(path.join(logsDir, 'access.log'), { flags: 'a' });
+app.use(morgan('combined', { stream: logStream}));
 
 // sendFile will go here
 app.get('/', function (req, res) {
