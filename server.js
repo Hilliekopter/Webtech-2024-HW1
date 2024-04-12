@@ -25,15 +25,6 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-// login handler
-// app.get('/login.html', function (req, res) {
-//   console.log("login request received on server");
-//   console.log(req.url);
-
-//   res.send(login(username, password));
-
-// });
-
 app.post('/login', async function (req, res) {
   const { uname, password } = req.body;
 
