@@ -1,5 +1,6 @@
 const express = require('express');
 const path = require('path');
+const bcrypt = require('bcrypt');
 
 // initialize file and check existence
 var fs = require("fs");
@@ -10,42 +11,60 @@ var sqlite3 = require("sqlite3").verbose();
 let sql;
 
 // connect to DB
-const db = new sqlite3.Database(dbFile, sqlite3.OPEN_READWRITE, (err)=>{
+const db = new sqlite3.Database(dbFile, sqlite3.OPEN_READWRITE, (err) => {
   if (err) return console.error(err.message);
 });
 
 const app = express();
 const port = 8022;
 app.use(express.static("public"));
+app.use(express.urlencoded({ extended: false }));
 
 // sendFile will go here
-app.get('/', function(req, res) {
+app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
 
 // login handler
-app.get('/login.html', function(req,res) {
+app.get('/login.html', function (req, res) {
   console.log("login request received on server");
   console.log(req.url);
 
-  res.send( login(username,password) );
- 
+  res.send(login(username, password));
+
 });
 
 // signup handler
-app.get('/signup.html', function(req,res) {
-  const { fname , lname , email , address , uname , password } = req.body;
-  
-  res.send( signup(fname , lname , email , address , uname , password ) );
+app.post('/register', async function (req, res) {
+  const { fname, lname, email, address, uname, password } = req.body;
+
+  try {
+    var encryptedPass = await bcrypt.hash(req.body.password, 10);
+    signup(100, email, fname, lname, address, uname, encryptedPass);
+    res.redirect('/login.html');
+  }
+  catch {
+    res.redirect('/signup.html');
+  }
 });
 
+// todo: login pagina -> sessions
+function signup(id, mail, firstName, lastName, address, username, password) {
+  sql = 'INSERT INTO users(userID,email,first_name,last_name,address,username,password) VALUES (?,?,?,?,?,?,?)'
+  db.run(
+    sql,
+    [id, mail, firstName, lastName, address, username, password],
+    (err) => {
+      if (err) return console.error(err.message);
+    })
+}
 
-app.get('/filming.html', function(req, res) {
+app.get('/filming.html', function (req, res) {
   res.sendFile(path.join(__dirname, 'filming.html'));
 });
 
-app.use(function(request, response) {
-  response.status(404).send("Page not found!");
+app.use(function (req, res) {
+  res.status(404).send("Page not found!");
 });
 
 
@@ -54,16 +73,15 @@ app.use(function(request, response) {
 app.listen(port);
 console.log('Server started at http://localhost:' + port);
 
-function login()
-{
+function login() {
   var success = false;
   sql = `SELECT * FROM users WHERE username = '${uname}' and password = '${password}`
   db.all(sql, (err, rows) => {
-    if(err){
+    if (err) {
       throw err;
     }
     // if there is some row for which these are true.
-    if(rows.length>0){
+    if (rows.length > 0) {
       success = true;
     }
   });
@@ -74,25 +92,12 @@ function login()
 }
 
 
-function queryUser()
-{
+function queryUser() {
   sql = 'SELECT * FROM users';
-  db.all(sql,[],(err,rows) => {
+  db.all(sql, [], (err, rows) => {
     if (err) return console.error(err.message);
-      rows.forEach(row => {
-        console.log(row);
-      })
-  })
-}
-
-// todo: login pagina -> sessions
-function signup (id, mail, firstName, lastName, address, username, password)
-{
-  sql = 'INSERT INTO users(userID,email,first_name,last_name,address,username,password) VALUES (?,?,?,?,?,?,?)'
-  db.run(
-    sql, 
-    [id, mail, firstName, lastName, address, username, password], 
-    (err) => {
-    if (err) return console.error(err.message);
+    rows.forEach(row => {
+      console.log(row);
+    })
   })
 }

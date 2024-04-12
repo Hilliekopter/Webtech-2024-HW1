@@ -32,17 +32,15 @@
 
     <main>
         <h1>Account</h1>
-        <form id="signup">
+        <form id="signup" method="POST" action="/register">
             <p>First name: <input name="fname" type="text" placeholder="First name.." required/></p>
             <p>Last name: <input name="lname" type="text" placeholder="Last name.." required/></p>
             <p>E-mail: <input name="email" type="email" placeholder="example@mail.org" required/></p>
             <p>Address: <input name="address" type="text" placeholder="Streetname 1, City" required/></p>
             <p>Username: <input name="uname" type="text" placeholder="Enter Username" required/></p>
             <p>Password: <input name="password" type="password" placeholder="Enter Password" required/></p>
-            <p><label><input type="checkbox" name="remember">Remember me</label></p>
             <p><button type="submit">Sign Up</button></p>
         </form>
-        <p>No account? <a>Create an account</a></p>
     </main>
 
     <footer>
