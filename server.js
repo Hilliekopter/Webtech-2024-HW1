@@ -25,6 +25,26 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
 
+app.get('/books.js', async function (req, res) {
+  console.log("Books request received");
+  res.send(await getBooks(req.query.page));
+});
+
+function getBooks(i) {
+  var maxId = i * 10;
+  var minId = maxId - 10;
+  sql = 'SELECT * FROM books WHERE bookID > ? AND bookID <= ?';
+  return new Promise((resolve, reject) => {
+    db.all(sql, [minId, maxId], (err, rows) => {
+      if (err) {
+        reject(err);
+      }
+      console.log(rows);
+      resolve(rows);
+    });
+  });
+}
+
 app.post('/login', async function (req, res) {
   const { uname, password } = req.body;
 
@@ -34,11 +54,11 @@ app.post('/login', async function (req, res) {
 
     //If password is wrong, return
     const passwordMatch = await bcrypt.compare(password, user.password);
-    if (passwordMatch){
+    if (passwordMatch) {
       console.log("Login successful");
       res.redirect("/index.html");
     }
-    else{
+    else {
       console.log("Wrong password")
       res.redirect("/login.html");
     }
@@ -102,11 +122,6 @@ app.get('/filming.html', function (req, res) {
 
 app.use(function (req, res) {
   res.status(404).send("Page not found!");
-});
-
-app.get('/books', async function (req, res){
-  console.log("Books request received");
-  
 });
 
 
