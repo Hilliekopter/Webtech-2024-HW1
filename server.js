@@ -1,6 +1,9 @@
 const express = require('express');
+const morgan = require('morgan');
 const path = require('path');
 const bcrypt = require('bcrypt');
+
+
 
 // initialize file and check existence
 var fs = require("fs");
@@ -17,6 +20,7 @@ const db = new sqlite3.Database(dbFile, sqlite3.OPEN_READWRITE, (err) => {
 
 const app = express();
 const port = 8022;
+app.use(morgan('tiny')); // HTTP logs
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: false }));
 
