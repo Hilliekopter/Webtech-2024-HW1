@@ -36,36 +36,41 @@ app.get('/', function (req, res) {
 
 app.post('/login', async function (req, res) {
   const { uname, password } = req.body;
-  console.log(req.body);
 
-  console.log("Attemping login");
+  console.log("Attemping login...");
   try {
-    const { dbname, dbpassword } = getUserByUsername(uname);
-    console.log(dbname, dbpassword);
+    const user = await getUserByUsername(uname);
 
-    // If password is wrong, return
-    if (!bcrypt.compare(password, dbpassword))
+    //If password is wrong, return
+    const passwordMatch = await bcrypt.compare(password, user.password);
+    if (passwordMatch){
+      console.log("Login successful");
+      res.redirect("/index.html");
+    }
+    else{
+      console.log("Wrong password")
       res.redirect("/login.html");
-
-    res.redirect("/index.html");
+    }
   }
-  catch {
-    console.log("Error while logging in")
+  catch (err) {
+    console.log("Error while logging in: " + err)
     res.redirect("/login.html");
   }
 });
 
-function getUserByUsername(uname) {
-  sql = 'SELECT * FROM users WHERE username = ?';
-  db.get(sql, [uname], (err, row) => {
-    if (err) {
-      return console.error(err.message);
-    }
-    username = row.username;
-    password = row.password;
-    var obj = {un: username, pw: password};
-    console.log(obj);
-    return {un: username, pw: password};
+// Returns object containing username and password
+function getUserByUsername(username) {
+  sql = 'SELECT username, password FROM users WHERE username = ?';
+  return new Promise((resolve, reject) => {
+    db.get(sql, [username], (err, row) => {
+      if (err) {
+        reject(err);
+      }
+      if (!row) {
+        reject("Username not found in database");
+      }
+      resolve(row);
+    });
   });
 }
 
@@ -114,23 +119,23 @@ app.use(function (req, res) {
 app.listen(port);
 console.log('Server started at http://localhost:' + port);
 
-function login() {
-  var success = false;
-  sql = `SELECT * FROM users WHERE username = '${uname}' and password = '${password}`
-  db.all(sql, (err, rows) => {
-    if (err) {
-      throw err;
-    }
-    // if there is some row for which these are true.
-    if (rows.length > 0) {
-      success = true;
-    }
-  });
+// function login() {
+//   var success = false;
+//   sql = `SELECT * FROM users WHERE username = '${uname}' and password = '${password}`
+//   db.all(sql, (err, rows) => {
+//     if (err) {
+//       throw err;
+//     }
+//     // if there is some row for which these are true.
+//     if (rows.length > 0) {
+//       success = true;
+//     }
+//   });
 
-  // so if there are no errors and the username/password are correct
-  //..then there is success.
-  return success;
-}
+//   // so if there are no errors and the username/password are correct
+//   //..then there is success.
+//   return success;
+// }
 
 
 function queryUser() {
