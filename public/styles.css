@@ -28,6 +28,14 @@ h2 {
     font-size: 1.2em;
 }
 
+.book {
+    min-height: 150px;
+    max-height: fit-content;
+    background-color:rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
 .subtitle {
     font-size: 1.2em;
     font-weight: bold;
