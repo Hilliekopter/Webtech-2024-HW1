@@ -26,13 +26,48 @@ app.get('/', function (req, res) {
 });
 
 // login handler
-app.get('/login.html', function (req, res) {
-  console.log("login request received on server");
-  console.log(req.url);
+// app.get('/login.html', function (req, res) {
+//   console.log("login request received on server");
+//   console.log(req.url);
 
-  res.send(login(username, password));
+//   res.send(login(username, password));
 
+// });
+
+app.post('/login', async function (req, res) {
+  const { uname, password } = req.body;
+  console.log(req.body);
+
+  console.log("Attemping login");
+  try {
+    const { dbname, dbpassword } = getUserByUsername(uname);
+    console.log(dbname, dbpassword);
+
+    // If password is wrong, return
+    if (!bcrypt.compare(password, dbpassword))
+      res.redirect("/login.html");
+
+    res.redirect("/index.html");
+  }
+  catch {
+    console.log("Error while logging in")
+    res.redirect("/login.html");
+  }
 });
+
+function getUserByUsername(uname) {
+  sql = 'SELECT * FROM users WHERE username = ?';
+  db.get(sql, [uname], (err, row) => {
+    if (err) {
+      return console.error(err.message);
+    }
+    username = row.username;
+    password = row.password;
+    var obj = {un: username, pw: password};
+    console.log(obj);
+    return {un: username, pw: password};
+  });
+}
 
 // signup handler
 app.post('/register', async function (req, res) {
@@ -40,10 +75,10 @@ app.post('/register', async function (req, res) {
 
   console.log('Attemping sign up');
   try {
-    var encryptedPass = await bcrypt.hash(req.body.password, 10);
+    var encryptedPass = await bcrypt.hash(password, 10);
     console.log('Password encryption succesful');
     signup(email, fname, lname, address, uname, encryptedPass);
-    
+
     console.log('Sign up succesful');
     res.redirect('/login.html');
   }
@@ -55,8 +90,8 @@ app.post('/register', async function (req, res) {
 
 // todo: login pagina -> sessions
 function signup(mail, firstName, lastName, address, username, password) {
-  sql = 'INSERT INTO users VALUES (NULL,?,?,?,?,?,?)'
-  console.log("Inserting into database");
+  sql = 'INSERT INTO users VALUES (NULL,?,?,?,?,?,?)';
+  console.log("Inserting new user into database");
   db.run(
     sql,
     [mail, firstName, lastName, address, username, password],
