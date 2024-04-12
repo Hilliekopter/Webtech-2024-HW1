@@ -38,22 +38,28 @@ app.get('/login.html', function (req, res) {
 app.post('/register', async function (req, res) {
   const { fname, lname, email, address, uname, password } = req.body;
 
+  console.log('Attemping sign up');
   try {
     var encryptedPass = await bcrypt.hash(req.body.password, 10);
-    signup(100, email, fname, lname, address, uname, encryptedPass);
+    console.log('Password encryption succesful');
+    signup(email, fname, lname, address, uname, encryptedPass);
+    
+    console.log('Sign up succesful');
     res.redirect('/login.html');
   }
   catch {
+    console.log('Error while signing up');
     res.redirect('/signup.html');
   }
 });
 
 // todo: login pagina -> sessions
-function signup(id, mail, firstName, lastName, address, username, password) {
-  sql = 'INSERT INTO users(userID,email,first_name,last_name,address,username,password) VALUES (?,?,?,?,?,?,?)'
+function signup(mail, firstName, lastName, address, username, password) {
+  sql = 'INSERT INTO users VALUES (NULL,?,?,?,?,?,?)'
+  console.log("Inserting into database");
   db.run(
     sql,
-    [id, mail, firstName, lastName, address, username, password],
+    [mail, firstName, lastName, address, username, password],
     (err) => {
       if (err) return console.error(err.message);
     })
