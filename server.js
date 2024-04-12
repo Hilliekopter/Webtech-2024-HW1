@@ -104,6 +104,12 @@ app.use(function (req, res) {
   res.status(404).send("Page not found!");
 });
 
+app.get('/books', async function (req, res){
+  console.log("Books request received");
+  
+});
+
+
 
 // app.use() // Router gebruiken om tussen pagina's te navigeren
 
